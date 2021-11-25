@@ -1,0 +1,10 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "userName": "Jojo",
+      "userContact": "96565656",
+      "userAddress": "Rua SpeedWagon Londres"
+    }
+  ]
+}

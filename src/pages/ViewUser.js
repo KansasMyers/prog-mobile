@@ -1,46 +1,28 @@
-import React, { useState } from 'react';
-import { Text, View, SafeAreaView } from 'react-native';
-import Mytext from './components/Mytext';
-import Mytextinput from './components/Mytextinput';
-import Mybutton from './components/Mybutton';
-import { DatabaseConnection } from '../database/database-connection';
+import React, { useState } from "react";
+import { Text, View, SafeAreaView } from "react-native";
+import Mytext from "./components/Mytext";
+import Mytextinput from "./components/Mytextinput";
+import Mybutton from "./components/Mybutton";
 
-const db = DatabaseConnection.getConnection();
+import { connect } from "react-redux";
+import { userFindById } from "../redux/actions/UserAction";
+import { userFilter } from "../redux/filters/UserFilter";
 
-const ViewUser = () => {
-  let [inputUserId, setInputUserId] = useState('');
-  let [userData, setUserData] = useState({});
+const ViewUser = (props) => {
+  let [inputUserId, setInputUserId] = useState("");
 
   let searchUser = () => {
-    console.log(inputUserId);
-    setUserData({});
-    db.transaction((tx) => {
-      tx.executeSql(
-        'SELECT * FROM table_user where user_id = ?',
-        [inputUserId],
-        (tx, results) => {
-          var len = results.rows.length;
-          console.log('len', len);
-          if (len > 0) {
-            setUserData(results.rows.item(0));
-          } else {
-            alert('Usuário não encontrado !');
-          }
-        }
-      );
-    });
+    props.userFindById(inputUserId);
   };
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ flex: 1, backgroundColor: 'white' }}>
+      <View style={{ flex: 1, backgroundColor: "white" }}>
         <View style={{ flex: 1 }}>
           <Mytext text="Filtro de Usuário" />
           <Mytextinput
             placeholder="Entre com o Código do Usuário"
-            onChangeText={
-              (inputUserId) => setInputUserId(inputUserId)
-            }
+            onChangeText={(inputUserId) => setInputUserId(inputUserId)}
             style={{ padding: 10 }}
           />
           <Mybutton title="Buscar Usuário" customClick={searchUser} />
@@ -48,12 +30,13 @@ const ViewUser = () => {
             style={{
               marginLeft: 35,
               marginRight: 35,
-              marginTop: 10
-            }}>
-            <Text>Código : {userData.user_id}</Text>
-            <Text>Nome : {userData.user_name}</Text>
-            <Text>Telefone : {userData.user_contact}</Text>
-            <Text>Endereço : {userData.user_address}</Text>
+              marginTop: 10,
+            }}
+          >
+            <Text>Código : {props.userItem.id}</Text>
+            <Text>Nome : {props.userItem.userName}</Text>
+            <Text>Telefone : {props.userItem.userContact}</Text>
+            <Text>Endereço : {props.userItem.userAddress}</Text>
           </View>
         </View>
       </View>
@@ -61,4 +44,4 @@ const ViewUser = () => {
   );
 };
 
-export default ViewUser;
+export default connect(userFilter, { userFindById })(ViewUser);

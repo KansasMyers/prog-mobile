@@ -1,50 +1,38 @@
-import React, { useState } from 'react';
-import { View, Alert, SafeAreaView } from 'react-native';
-import Mytextinput from './components/Mytextinput';
-import Mybutton from './components/Mybutton';
-import { DatabaseConnection } from '../database/database-connection';
+import React, { useState } from "react";
+import { View, Alert, SafeAreaView } from "react-native";
+import Mytextinput from "./components/Mytextinput";
+import Mybutton from "./components/Mybutton";
 
-const db = DatabaseConnection.getConnection();
+import { connect } from "react-redux";
+import { userFindById, userDeleteById } from "../redux/actions/UserAction";
+import { userFilter } from "../redux/filters/UserFilter";
 
-const DeleteUser = ({ navigation }) => {
-  let [inputUserId, setInputUserId] = useState('');
+const DeleteUser = (props) => {
+  let [inputUserId, setInputUserId] = useState("");
 
   let deleteUser = () => {
-    db.transaction((tx) => {
-      tx.executeSql(
-        'DELETE FROM  table_user where user_id=?',
-        [inputUserId],
-        (tx, results) => {
-          console.log('Results', results.rowsAffected);
-          if (results.rowsAffected > 0) {
-            Alert.alert(
-              'Sucesso',
-              'Usuário Excluído com Sucesso !',
-              [
-                {
-                  text: 'Ok',
-                  onPress: () => navigation.navigate('HomeScreen'),
-                },
-              ],
-              { cancelable: false }
-            );
-          } else {
-            alert('Por favor entre com um código de usuário válido !');
-          }
-        }
-      );
-    });
+    props.userDeleteById(inputUserId);
+
+    Alert.alert(
+      "Sucesso",
+      "Usuário Excluído com Sucesso!",
+      [
+        {
+          text: "Ok",
+          onPress: () => props.navigation.navigate("HomeScreen"),
+        },
+      ],
+      { cancelable: false }
+    );
   };
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ flex: 1, backgroundColor: 'white' }}>
+      <View style={{ flex: 1, backgroundColor: "white" }}>
         <View style={{ flex: 1 }}>
           <Mytextinput
             placeholder="Entre com o Código do Usuário"
-            onChangeText={
-              (inputUserId) => setInputUserId(inputUserId)
-            }
+            onChangeText={(inputUserId) => setInputUserId(inputUserId)}
             style={{ padding: 10 }}
           />
           <Mybutton title="Excluir Usuário" customClick={deleteUser} />
@@ -54,4 +42,6 @@ const DeleteUser = ({ navigation }) => {
   );
 };
 
-export default DeleteUser;
+export default connect(userFilter, { userFindById, userDeleteById })(
+  DeleteUser
+);
