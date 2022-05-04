@@ -1,19 +1,6 @@
 import axios from "axios";
 import Constants from "expo-constants";
 
-axios.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    if (error.response.status === 404) {
-      alert("Rota para o usuário(s) solicitada não existe.");
-    } else {
-      alert(error.message);
-    }
-
-    throw error;
-  }
-);
-
 const API_URL = `${Constants.manifest.extra.apiUrl}users`;
 
 console.log("Api_URL: ", API_URL);

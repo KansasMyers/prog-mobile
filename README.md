@@ -9,11 +9,11 @@ Esse é um projeto com o requisitos minimos do projeto de programação mobile d
 
 ## Construído com
 
-* [NodeJS](https://nodejs.org/en/) - Ambiente de execução Javascript
-* [React Native](https://reactnative.dev/) - O framework Mobile usado
-* [Expo](https://expo.io/) - Facilitador de visualização
-* [Redux](https://redux.js.org/) - Gerenciador de Estados do Aplicativo
-* [JSON-Server](https://www.npmjs.com/package/json-server) - Banco de Dados
+* [NodeJS](https://nodejs.org/en/) - Ambiente de execução Javascript.
+* [React Native](https://reactnative.dev/) - O framework para desenvolvimento Mobile.
+* [Expo](https://expo.io/) - Facilitador de visualização / construção.
+* [Redux](https://redux.js.org/) - Gerenciador de Estados do Aplicativo.
+* [JSON-Server](https://www.npmjs.com/package/json-server) - Banco de Dados simulado.
 
 </br>
 
@@ -36,11 +36,11 @@ ou
 $ npm install
 
 # Execute o comando para iniciar o banco de dados
-# Lembre-se de substituir o 'SEU_IP_LOCAL_AQUI'
+# Lembre-se de substituir os parâmetros 'PORTA_AQUI' e 'SEU_IP_LOCAL_AQUI'
 # Ex: json-server database.json -p 3000 -H 191.0.0.100
-$ yarn json-server database.json -p 3000 -H SEU_IP_LOCAL_AQUI
+$ yarn json-server database.json -p PORTA_AQUI -H SEU_IP_LOCAL_AQUI
 ou 
-$ npm json-server database.json -p 3000 -H SEU_IP_LOCAL_AQUI
+$ npm json-server database.json -p PORTA_AQUI -H SEU_IP_LOCAL_AQUI
 
 # Adicionar o url da sua api json-server no arquivo de manifesto app.json na raiz do projeto para ele adicionar as variáveis de ambiente.
 # Substituir a propriedade expo.extra.apiUrl no arquivo app.json. Ex:
@@ -55,9 +55,7 @@ $ yarn start
 ou
 $ npm start
 
-# O Expo é iniciado no pc mediante o browser e após esse processo acessar o celular e executar o expo
-# e fazer a leitura do QRCode que é mostrado no bowser pelo Expo.
+# O Expo é iniciado no pc mediante o browser e após esse processo acessar o celular e executar o expo e fazer a leitura do QRCode que é mostrado no bowser pelo Expo.
 ```
 
 ---
-

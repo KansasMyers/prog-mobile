@@ -17,9 +17,7 @@ export function userList() {
           content: response.data,
         });
       })
-      .catch((error) => {
-        console.log("ERROR = ", error);
-      });
+      .catch(handleError);
   };
 }
 
@@ -30,7 +28,7 @@ export function userFindById(id) {
         type: USER_ACTIONS.FIND_BY_ID,
         content: response.data,
       });
-    });
+    }).catch(handleError);
   };
 }
 
@@ -41,7 +39,7 @@ export function userDeleteById(id) {
         type: USER_ACTIONS.DELETE,
         content: id,
       });
-    });
+    }).catch(handleError);
   };
 }
 
@@ -61,4 +59,13 @@ export function userSave(user) {
       }
     });
   };
+}
+
+
+function handleError(error) {
+  if (error.response.status === 404) {
+    alert('Usuário não encontrado!');
+  } else {
+    alert(error);
+  }
 }
