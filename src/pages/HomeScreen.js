@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { View, SafeAreaView } from 'react-native';
 import MyImageButton from './components/MyImageButton';
 
 const HomeScreen = ({ navigation }) => {
-
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1, backgroundColor: 'white' }}>

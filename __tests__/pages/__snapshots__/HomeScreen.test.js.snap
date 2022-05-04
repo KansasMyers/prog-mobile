@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HomeScreen /> renders correctly 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "white",
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+      >
+        <MyImageButton
+          btnColor="#00F2E0"
+          btnIcon="user-plus"
+          customClick={[Function]}
+          title="Cadastrar Usuário"
+        />
+        <MyImageButton
+          btnColor="#A45BB9"
+          btnIcon="user-circle"
+          customClick={[Function]}
+          title="Atualizar Usuário"
+        />
+        <MyImageButton
+          btnColor="#F9AD29"
+          btnIcon="user"
+          customClick={[Function]}
+          title="Visualizar Usuário"
+        />
+        <MyImageButton
+          btnColor="#384F62"
+          btnIcon="users"
+          customClick={[Function]}
+          title="Visualizar Todos os Usuários"
+        />
+        <MyImageButton
+          btnColor="#D1503A"
+          btnIcon="user-times"
+          customClick={[Function]}
+          title="Excluir Usuário"
+        />
+      </View>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;

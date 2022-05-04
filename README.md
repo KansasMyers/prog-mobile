@@ -1,6 +1,7 @@
 <h1> Procura-se </h1>
 
-## Sobre o Projeto
+<h2> Sobre o Projeto</h2>
+
 </br>
 
 Esse é um projeto com o requisitos minimos do projeto de programação mobile do 6º Período - Parte 2.
@@ -9,11 +10,13 @@ Esse é um projeto com o requisitos minimos do projeto de programação mobile d
 
 ## Construído com
 
-* [NodeJS](https://nodejs.org/en/) - Ambiente de execução Javascript.
-* [React Native](https://reactnative.dev/) - O framework para desenvolvimento Mobile.
+* [NodeJS](https://nodejs.org/en/) - Ambiente de execução javascript.
+* [Yarn](https://yarnpkg.com/) - Gerenciador de dependências.
+* [React Native](https://reactnative.dev/) - O framework para desenvolvimento mobile.
 * [Expo](https://expo.io/) - Facilitador de visualização / construção.
-* [Redux](https://redux.js.org/) - Gerenciador de Estados do Aplicativo.
-* [JSON-Server](https://www.npmjs.com/package/json-server) - Banco de Dados simulado.
+* [Redux](https://redux.js.org/) - Gerenciador de estados do aplicativo.
+* [Jest](https://jestjs.io/pt-BR/) - Testes unitários.
+* [JSON-Server](https://www.npmjs.com/package/json-server) - Banco de dados simulado.
 
 </br>
 
@@ -56,6 +59,17 @@ ou
 $ npm start
 
 # O Expo é iniciado no pc mediante o browser e após esse processo acessar o celular e executar o expo e fazer a leitura do QRCode que é mostrado no bowser pelo Expo.
+```
+
+</br>
+
+## Rodando os testes unitários
+
+
+
+```bash
+# Basta executar o comando abaixo no terminal e pronto.
+$ yarn test
 ```
 
 ---
