@@ -2,15 +2,9 @@
   "users": [
     {
       "id": 1,
-      "userName": "Jojo",
-      "userContact": "96565656",
+      "userName": "Jotaro Kujo",
+      "userContact": "6959595959",
       "userAddress": "Rua SpeedWagon Londres"
-    },
-    {
-      "userName": "Jojo",
-      "userContact": "222",
-      "userAddress": "Gg",
-      "id": 2
     }
   ]
 }
